@@ -11,7 +11,7 @@ import { Project } from "@/types";
 export default function ProjectCard({ title, subtitle, projectUrl, target, dateUpdated, delay }: Project) {
   return (
     <Link href={projectUrl} target={target} className={`w-full rounded-xl flex justify-between px-4 py-6 items-center hover:bg-secondary border border-gray-100 dark:hover:bg-neutral-800/50 group intersect-once intersect:motion-preset-slide-up motion-duration-[2s] motion-ease-spring-smooth motion-delay-[${delay}ms]`}>
-      <div className="flex flex-col w-[50%] md:w-[70%]">
+      <div className="flex flex-col w-[55%] md:w-[70%]">
         <div className="line-clamp-2 flex-grow text-balance">
           <span className="text-foreground dark:text-white text-sm md:text-base tracking-tight">{title}</span>
         </div>
