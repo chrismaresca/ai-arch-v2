@@ -1,31 +1,64 @@
-# Content Strategy Client 🚀
+# AI Architects 🤖✨
 
-A modern, performant client for managing and displaying your content strategy.
+Welcome to AI Architects - Your Premier AI Development Agency. We craft intelligent, scalable solutions that bridge the gap between cutting-edge AI technology and real-world business needs.
 
-## 🛠 Setup & Configuration
+## 🌟 About Us
 
-### Environment Variables
+AI Architects is a forward-thinking development agency specializing in:
 
-1. Create your environment file:
+- 🧠 Custom AI Solution Development
+- 🚀 Large Language Model Fine-tuning
+- 💻 AI-Powered Web Applications
+- 🔄 Machine Learning Pipeline Development
+- 🤝 AI Integration Consulting
 
+## 🛠 Technology Stack
+
+Our website is built with modern, performant technologies:
+
+- Next.js 13+ with App Router
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Motion One for smooth animations
+- Radix UI for accessible components
+- MDX for content management
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- pnpm 9+
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ai-architects/website.git
+   cd website
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Set up your environment variables:
    ```bash
    cp .env.example .env
    ```
 
-2. Configure the following environment variables:
-
+4. Configure your environment:
    ```env
-   POSTS_API_BASE_URL=<your-api-url>
-   BRAND_ID=<your-brand-id>
-   NEXT_PUBLIC_URL=<your-public-url>
-
-   # Social Links (Optional)
-   GITHUB_URL=<your-github-url>
-   LINKEDIN_URL=<your-linkedin-url>
-   X_URL=<your-x-url>
-   EMAIL=<your-email>
+   NEXT_PUBLIC_URL=<your-deployment-url>
+   
+   # Social & Contact
+   GITHUB_URL=<github-profile>
+   LINKEDIN_URL=<linkedin-profile>
+   X_URL=<twitter-profile>
+   EMAIL=<contact-email>
    ```
 
-### 🎨 Customizing Styles
+### 🎨 Customization
 
-The blog components' styling can be customized by modifying:
+Our website features a beautiful, customizable design with:
