@@ -11,7 +11,7 @@ export default function HeaderNavigation() {
   return (
     <>
       {isHome ? (
-        <nav className="flex gap-8">
+        <nav className="flex md:gap-8 gap-4">
           {SITE_NAV_LINKS.map((link) => (
             <Link key={link.href} href={link.href} className="font-medium flex items-center text-sm transition-colors hover:underline" prefetch={false}>
               {link.label}
@@ -19,7 +19,7 @@ export default function HeaderNavigation() {
           ))}
         </nav>
       ) : (
-        <nav className="hidden md:flex gap-4">
+        <nav className="hidden md:flex md:gap-8 gap-4">
           {SITE_NAV_LINKS.map((link) => (
             <Link key={link.href} href={link.href} className="font-medium flex items-center text-sm transition-colors hover:underline" prefetch={false}>
               {link.label}
