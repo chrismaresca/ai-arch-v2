@@ -15,6 +15,7 @@ type MotionButtonProps = {
   size?: "sm" | "lg" | "default" | "icon" | null | undefined;
   fromColor?: string;
   toColor?: string;
+  hideOnMobile?: boolean;
 };
 
 export function MotionButton({ 
@@ -22,7 +23,8 @@ export function MotionButton({
   href, 
   size = "lg",
   fromColor = "bg-blue-600",
-  toColor = "bg-black"
+  toColor = "bg-black",
+  hideOnMobile = false
 }: MotionButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -61,14 +63,16 @@ export function MotionButton({
             Actual behavior may depend on user/browser settings. */}
         <Link href={href} target="_blank" className="flex items-center gap-2">
           {buttonText}
-          <div className="flex items-center gap-2 ml-2">
-            <div className={`bg-white/25 border border-white/10 rounded flex items-center justify-center ${getIconSize()}`}>
-              <p className="text-center text-white text-[14px] leading-none">⌘</p>
+
+            <div className={`flex items-center gap-2 ml-2 ${hideOnMobile ? "hidden lg:flex" : ""}`}>
+              <div className={`bg-white/25 border border-white/10 rounded flex items-center justify-center ${getIconSize()}`}>
+                <p className="text-center text-white text-[14px] leading-none">⌘</p>
+              </div>
+              <div className={`bg-white/25 border border-white/10 rounded flex items-center justify-center px-2 ${getIconSize()}`}>
+                <p className="text-center text-white text-[14px] leading-none">K</p>
+              </div>
             </div>
-            <div className={`bg-white/25 border border-white/10 rounded flex items-center justify-center px-2 ${getIconSize()}`}>
-              <p className="text-center text-white text-[14px] leading-none">K</p>
-            </div>
-          </div>
+      
         </Link>
       </Button>
       <motion.div className={`absolute inset-0 ${toColor} rounded-md z-10`} initial={{ y: "100%" }} animate={{ y: isHovered ? "0%" : "100%" }} transition={{ duration: 0.15, ease: "easeInOut" }} />

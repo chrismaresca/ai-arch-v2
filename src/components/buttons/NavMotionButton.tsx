@@ -22,7 +22,7 @@ export default function NavMotionButton() {
       {!isHome && (
         <div className="flex items-center gap-6">
           {/* <Button size="sm">Schedule a Call</Button> */}
-          <MotionButton href={CALENDAR_LINK} buttonText={BOOK_CALL_CTA} size="sm" fromColor="bg-black" toColor="bg-blue-600" />
+          <MotionButton href={CALENDAR_LINK} buttonText={BOOK_CALL_CTA} size="sm" fromColor="bg-black" toColor="bg-blue-600" hideOnMobile={true} />
         </div>
       )}
     </>
