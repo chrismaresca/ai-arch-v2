@@ -1,17 +1,17 @@
 import type { Config } from "tailwindcss";
 
-import typography from "@tailwindcss/typography";
 import animate from "tailwindcss-animate";
-import tailwindcssMotion from "tailwindcss-motion";
+// import tailwindcssMotion from "tailwindcss-motion"; 
+
 
 export default {
-  darkMode: ["class"],
+  darkMode: ["selector"],
   content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}", "./src/sections/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
         mono: ["var(--font-geist-mono)"],
-        sans: ["var(--font-geistSans)"],
+        //   sans: ["var(--font-geistSans)"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -63,5 +63,5 @@ export default {
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [typography, animate, tailwindcssMotion, require("tailwindcss-intersect")],
+  plugins: [animate, require("tailwindcss-motion"), require("tailwindcss-intersect"), require("@tailwindcss/typography")],
 } satisfies Config;

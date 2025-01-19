@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 // Analytics and Speed Insights
 import { Analytics } from "@vercel/analytics/next";
- import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Fonts
 import { Geist, Geist_Mono } from "next/font/google";
@@ -12,6 +12,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { getBrandMetadata } from "@/data/getMetadata";
 import ObserverProvider from "@/lib/ObserverProvider";
+import HeaderNavbar from "@/sections/layout/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,8 +44,10 @@ export default function RootLayout({
   return (
     <ObserverProvider>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark bg-background font-mono`}>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-mono bg-background`}>
           <main className="max-w-7xl mx-auto">
+            <HeaderNavbar />
+
             {children}
           </main>
           <Analytics />

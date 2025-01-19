@@ -24,10 +24,10 @@ export default function ArticleCard({ title, slug, tagName, dateUpdated, authorI
   // const authorImage = authorId === "060b3929-0ac8-4630-a0a4-0eb22d2dc237" ? "/headshot-edit.jpg" : "/headshot-edit.jpg";
 
   return (
-    <Link href={`/articles/${slug}`} className={`w-full rounded-xl flex justify-between px-4 py-6 items-center hover:bg-neutral-800/50 hover:cursor-pointer group intersect-once intersect:motion-preset-slide-up intersect:motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth motion-delay-[${delay}ms]`}>
+    <Link href={`/articles/${slug}`} className={`w-full rounded-xl flex justify-between px-4 py-6 items-center bg-secondary/80 hover:bg-secondary border border-gray-100 dark:hover:bg-neutral-800/50 hover:cursor-pointer group intersect-once intersect:motion-preset-slide-up intersect:motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth motion-delay-[${delay}ms]`}>
       <div className="flex flex-col w-[18rem] md:w-[25rem] lg:w-[34rem]">
         <div className="line-clamp-2 flex-grow text-balance">
-          <span className="text-white text-sm md:text-base tracking-tight">{title}</span>
+          <span className="text-foreground dark:text-white text-sm md:text-base tracking-tight">{title}</span>
         </div>
         <div className="block mt-2 lg:hidden text-muted-foreground text-xs tracking-tighter">{tagName}</div>
       </div>

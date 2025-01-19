@@ -1,9 +1,6 @@
 // Types
 import { NextParams, ArticleResponse } from "@/types";
 
-// Next Navigation
-import { notFound } from "next/navigation";
-
 // Article Components
 import {
   ArticleTags,
@@ -75,25 +72,21 @@ export async function generateMetadata({ params: paramsPromise }: NextParams) {
 }
 
 export default async function BlogPost({ params: paramsPromise }: NextParams) {
-  const { slug } = await paramsPromise;
-
-  if (!slug) {
-    notFound();
-  }
-
+  const { slug = "" } = await paramsPromise;
   const postObject: ArticleResponse | null = await fetchArticleBySlug(slug);
 
   const post = postObject.docs[0];
 
+  // TODO: Redirect to 404 if post is not found
 
   if (!post) {
-    notFound();
+    throw new Error("Post not found");
   }
 
   const mainTag = post.tags?.[0]?.tag ?? { name: "No tags found", slug: "no-tags-found" };
 
   return (
-    <div className="pt-8 pb-16 lg:pt-16 lg:pb-24">
+    <div className="pb-16 lg:pt-36 lg:pb-24">
       <div className="flex justify-between px-10 lg:px-4 2xl:px-0 mx-auto max-w-screen-xl motion-preset-slide-up-sm motion-duration-[2s] motion-ease-spring-smooth">
         {/* Start Article */}
         <article className="mx-auto w-full max-w-[48rem] format format-sm sm:format-base lg:format-lg format-blue dark:format-invert font-sans">
