@@ -6,7 +6,7 @@ import {
   ArticleTags,
   ArticleHeader,
   ArticleAuthor,
-  FollowSocials,
+  // FollowSocials,
   // ArticleReactions,
   // ArticleShare
 } from "@/components/articles";
@@ -77,6 +77,7 @@ export default async function BlogPost({ params: paramsPromise }: NextParams) {
 
   const post = postObject.docs[0];
 
+
   // TODO: Redirect to 404 if post is not found
 
   if (!post) {
@@ -86,8 +87,8 @@ export default async function BlogPost({ params: paramsPromise }: NextParams) {
   const mainTag = post.tags?.[0]?.tag ?? { name: "No tags found", slug: "no-tags-found" };
 
   return (
-    <div className="pb-16 lg:pt-36 lg:pb-24">
-      <div className="flex justify-between px-10 lg:px-4 2xl:px-0 mx-auto max-w-screen-xl motion-preset-slide-up-sm motion-duration-[2s] motion-ease-spring-smooth">
+    <div className="pb-16 lg:pb-24">
+      <div className="flex justify-between px-10 lg:px-4 2xl:px-0 mx-auto max-w-screen-xl motion-preset-fade-sm motion-duration-[2s] motion-ease-spring-smooth">
         {/* Start Article */}
         <article className="mx-auto w-full max-w-[48rem] format format-sm sm:format-base lg:format-lg format-blue dark:format-invert font-sans">
           {/* Start Article Header */}
@@ -134,7 +135,7 @@ export default async function BlogPost({ params: paramsPromise }: NextParams) {
             {/* End Author */}
 
             {/* Start Follow Socials */}
-            <FollowSocials />
+            {/* <FollowSocials /> */}
             {/* End Follow Socials */}
 
             {/* Replace the Tags section with the new component */}

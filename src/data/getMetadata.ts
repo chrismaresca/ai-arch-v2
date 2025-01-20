@@ -25,6 +25,7 @@ export async function getBrandMetadata(brandId: string): Promise<Metadata> {
       canonical: "/",
       languages: {
         "en-US": "/en-US",
+        "x-default": "/",
       },
     },
     title: {

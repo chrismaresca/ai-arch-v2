@@ -10,7 +10,7 @@ const builders = [
     image: "https://storage.googleapis.com/ai-cms-v2/ai-arch/mit-2.png",
   },
   {
-    name: "Y Combomator",
+    name: "Y Combinator",
     image: "https://storage.googleapis.com/ai-cms-v2/ai-arch/cornell.png",
   },
   {

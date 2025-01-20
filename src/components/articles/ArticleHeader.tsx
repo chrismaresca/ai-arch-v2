@@ -17,7 +17,6 @@ type ArticleHeaderProps = {
 };
 
 export function ArticleHeader({ title, author, date, mainTagName, mainTagSlug }: ArticleHeaderProps) {
-
   return (
     <header className="mb-2 lg:mb-6 not-format ">
       <h1 className="mb-6 text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-gray-900 lg:mb-8 lg:text-5xl dark:text-white motion-ease-in">

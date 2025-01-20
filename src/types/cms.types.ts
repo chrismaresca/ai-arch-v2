@@ -17,6 +17,10 @@ export type Author = {
   lastName: string;
   title: string;
   bio: string;
+  linkedInHandle: string;
+  twitterHandle: string;
+  githubHandle: string;
+  image: string;
   isHuman: boolean;
   location: string;
   dateCreated: Date;

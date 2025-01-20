@@ -36,6 +36,7 @@ export default function ArticleListClient({ articles, tags }: ArticleListClientP
   const [displayPosts, setDisplayPosts] = useState<Article[]>([]);
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
 
+
   // 1) Memoize sortedPosts
   const sortedPosts = useMemo(
     () =>
@@ -147,7 +148,7 @@ export default function ArticleListClient({ articles, tags }: ArticleListClientP
               tagName={post.tags?.[0]?.tag.name}
               slug={post.slug}
               dateUpdated={post.dateUpdated}
-              authorId={post.authorId}
+              author={post.author}
               delay={index * 100}
             />
           ))

@@ -47,6 +47,7 @@ export default async function ArticlesPage() {
   const articleObjects: Article[] = articlesResponse?.docs ?? [];
   const tagObjects: Tag[] = tagsResponse?.docs ?? [];
 
+
   return (
     <>
       <div className="min-h-screen max-w-7xl sm:px-8 mb-12 motion-blur-in-sm motion-duration-[800ms] motion-ease-in-out">
