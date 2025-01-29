@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 // Analytics and Speed Insights
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "@/components/ui/toaster";
 
 // Fonts
 import { Geist, Geist_Mono } from "next/font/google";
@@ -50,6 +51,8 @@ export default function RootLayout({
 
             {children}
           </main>
+          <Toaster />
+
           <Analytics />
           <SpeedInsights />
         </body>

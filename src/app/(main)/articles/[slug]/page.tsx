@@ -6,6 +6,7 @@ import {
   ArticleTags,
   ArticleHeader,
   ArticleAuthor,
+  ArticleShare,
   // FollowSocials,
   // ArticleReactions,
   // ArticleShare
@@ -77,7 +78,6 @@ export default async function BlogPost({ params: paramsPromise }: NextParams) {
 
   const post = postObject.docs[0];
 
-
   // TODO: Redirect to 404 if post is not found
 
   if (!post) {
@@ -124,11 +124,9 @@ export default async function BlogPost({ params: paramsPromise }: NextParams) {
               Sidebar
             </h3>
 
-            {/* Start Reactions */}
-            {/* <Suspense fallback={<div>Loading...</div>}>
-              <ArticleReactions />
-            </Suspense> */}
-            {/* End Reactions */}
+            {/* Start Article Share */}
+            <ArticleShare path={`/articles/${post.slug}`} title={post.title} />
+            {/* End Article Share */}
 
             {/* Start Author */}
             <ArticleAuthor author={post.author} />
