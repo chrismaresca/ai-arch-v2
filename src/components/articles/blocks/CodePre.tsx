@@ -1,8 +1,9 @@
 'use client'
 
+import { cn } from '@/lib/utils';
 import { useState, useRef } from 'react';
 
-export const CodePre = ({ children }: { children: React.ReactNode }) => {
+export const CodePre = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const textInput = useRef<HTMLPreElement>(null);
   const [copied, setCopied] = useState(false);
 
@@ -13,7 +14,7 @@ export const CodePre = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-700 bg-[#282c34] w-[95%]">
+    <div className={cn("overflow-hidden rounded-lg border border-gray-700 bg-[#282c34] w-[95%]", className)}>
       <div className="flex items-center justify-between border-b border-gray-700 px-4 py-3">
         <span className="text-xs text-gray-400">Code</span>
         <button
@@ -32,7 +33,7 @@ export const CodePre = ({ children }: { children: React.ReactNode }) => {
           )}
         </button>
       </div>
-      <pre ref={textInput} className="py-2 px-5">
+      <pre ref={textInput} className="py-2 px-5 bg-[#282c34]">
         {children}
       </pre>
     </div>

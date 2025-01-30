@@ -98,23 +98,29 @@ const BLOCKQUOTE: React.FC<ComponentProps> = ({ children, className, ...props })
 
 const HR: React.FC<ComponentProps> = (props) => <Separator {...props} className="!my-6" />;
 
-const CODE: React.FC<ComponentProps> = ({ children, className, ...props }) => (
-  <code {...props} className={cn("relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold !my-0", className)}>
-    {children}
-  </code>
-);
+const CODE: React.FC<ComponentProps> = ({ children, className, ...props }) => {
+  const content = React.Children.toArray(children).join('');
+  const hasNewline = content.includes("\n");  return (
+    <code {...props} className={cn(
+      "relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold !my-0",
+      !hasNewline && "code-inline",
+      className
+    )}>
+      {children}
+    </code>
+  );
+};
 
-// const PRE: React.FC<ComponentProps> = ({ children, className, ...props }) => (
-//   <pre {...props} className={cn("!mb-4 !mt-4 overflow-x-auto rounded-lg border bg-black p-4", className)}>
-//     {children}
-//   </pre>
-// );
-
-const PRE: React.FC<ComponentProps> = ({ children, ...props }) => (
-  <div className="!my-8">
-    <CodePre {...props}>{children}</CodePre>
-  </div>
-);
+const PRE: React.FC<ComponentProps> = ({ children, className, ...props }) => {
+  return (
+    <div className="!my-8">
+      {/* Uses CodePre for proper block code formatting */}
+      <CodePre className={className} {...props}>
+        {children}
+      </CodePre>
+    </div>
+  );
+};
 
 const TABLE: React.FC<ComponentProps> = ({ children, ...props }) => (
   <div className="!my-6">
@@ -133,7 +139,6 @@ const THEAD: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTableHea
 const TBODY: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTableBody {...props}>{children}</MDXTableBody>;
 
 const TFOOTER: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTableFooter {...props}>{children}</MDXTableFooter>;
-
 
 const IMG: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ alt, src, ...props }) => <Image {...props} alt={alt || ""} src={src || ""} width={800} height={400} className="rounded-md border !my-4" />;
 

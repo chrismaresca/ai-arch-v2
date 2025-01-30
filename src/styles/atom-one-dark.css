@@ -28,6 +28,16 @@ hue-6-2: #e6c07b
     color: #abb2bf;
     background: #282c34;
 }
+
+code {
+  background: transparent !important;
+}
+
+.code-inline {
+  background: rgb(244, 244, 244) !important;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
   
   .hljs-comment,
   .hljs-quote {
