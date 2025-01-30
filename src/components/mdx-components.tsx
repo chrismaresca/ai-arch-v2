@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 
 // Rehype Plugins
+import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 
 // Styles
@@ -23,11 +24,12 @@ import { Button } from "@/components/ui/button";
 
 // Custom Components
 import { CodePre } from "@/components/articles/blocks/CodePre";
+import { MDXTable, MDXTH, MDXTD, MDXTR, MDXTableHeader, MDXTableBody, MDXTableFooter } from "@/components/articles/blocks/TableComponents";
 
 // Rehype Plugins
 const options: MDXRemoteProps["options"] = {
   mdxOptions: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeHighlight],
   },
 };
@@ -114,25 +116,24 @@ const PRE: React.FC<ComponentProps> = ({ children, ...props }) => (
   </div>
 );
 
-const TABLE: React.FC<ComponentProps> = ({ children, className, ...props }) => (
-  <div className="!my-4 w-full overflow-y-auto">
-    <table {...props} className={cn("w-full", className)}>
-      {children}
-    </table>
+const TABLE: React.FC<ComponentProps> = ({ children, ...props }) => (
+  <div className="!my-6">
+    <MDXTable {...props}>{children}</MDXTable>
   </div>
 );
 
-const TH: React.FC<ComponentProps> = ({ children, className, ...props }) => (
-  <th {...props} className={cn("border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right", className)}>
-    {children}
-  </th>
-);
+const TH: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTH {...props}>{children}</MDXTH>;
 
-const TD: React.FC<ComponentProps> = ({ children, className, ...props }) => (
-  <td {...props} className={cn("border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right", className)}>
-    {children}
-  </td>
-);
+const TD: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTD {...props}>{children}</MDXTD>;
+
+const TR: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTR {...props}>{children}</MDXTR>;
+
+const THEAD: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTableHeader {...props}>{children}</MDXTableHeader>;
+
+const TBODY: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTableBody {...props}>{children}</MDXTableBody>;
+
+const TFOOTER: React.FC<ComponentProps> = ({ children, ...props }) => <MDXTableFooter {...props}>{children}</MDXTableFooter>;
+
 
 const IMG: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ alt, src, ...props }) => <Image {...props} alt={alt || ""} src={src || ""} width={800} height={400} className="rounded-md border !my-4" />;
 
@@ -153,6 +154,10 @@ const components = {
   table: TABLE,
   th: TH,
   td: TD,
+  tr: TR,
+  thead: THEAD,
+  tbody: TBODY,
+  tfoot: TFOOTER,
   img: IMG,
   Card,
   CardContent,
